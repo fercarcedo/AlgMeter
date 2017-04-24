@@ -14,14 +14,14 @@ public class Meter {
 	private Algorithm algorithm;
 	private long startN;
 	private long endN;
-	private long stepN;
+	private StepFunction stepFunction;
 	private long repetitions;
 
-	public Meter(Algorithm algorithm, long startN, long endN, long stepN, long repetitions) {
+	public Meter(Algorithm algorithm, long startN, long endN, StepFunction stepFunction, long repetitions) {
 		this.algorithm = algorithm;
 		this.startN = startN;
 		this.endN = endN;
-		this.stepN = stepN;
+		this.stepFunction = stepFunction;
 		this.repetitions = repetitions;
 	}
 
@@ -35,7 +35,7 @@ public class Meter {
 	public Map<Long, Long> run() {
 		Map<Long, Long> result = new TreeMap<>();
 
-		for (long n = startN; n <= endN; n += stepN) {
+		for (long n = startN; n <= endN; n = stepFunction.nextN(n)) {
 			long totalTime = 0;
 			for (long i = 0; i < repetitions; i++) {
 				long startTime = System.currentTimeMillis();
