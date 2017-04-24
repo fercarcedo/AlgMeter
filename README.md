@@ -7,13 +7,13 @@ AlgMeter is composed of two main modules: Meter and Renderer. Meter measures an 
 ```java
 Meter meter = new Meter(new Algorithm() {
     @Override
-	  public void execute(long n) {
-		    new Foo().execute(n);
-	  }
+    public void execute(long n) {
+        new Foo().execute(n);
+    }
 }, startN, endN, new StepFunction() {
     @Override
     public long nextN(long previousN) {
-      return previousN * 2;
+        return previousN * 2;
     }
 }, repetitions);
 
