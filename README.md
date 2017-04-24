@@ -7,12 +7,12 @@ AlgMeter is composed of two main modules: Meter and Renderer. Meter measures an 
 ```java
 Meter meter = new Meter(new Algorithm() {
   @Override
-	public void execute(long n) {
-		new Foo().execute(n);
-	}
+  public void execute(long n) {
+      new Foo().execute(n);
+  }
 }, startN, endN, stepN, repetitions);
 
-Renderer renderer = new Renderer(meter.run(), //Map<Long, Long> with execution times
-										          "algtimes"); //generated spreadsheet name (without extension)
+Renderer renderer = new Renderer(meter.run(), //Map<Long, Long> with execution time
+                                 "algtimes"); //generated spreadsheet name (without extension)
 renderer.render();
 ```
